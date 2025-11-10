@@ -279,16 +279,17 @@ html {
 
   &__container {
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: repeat(4, 1fr);
     justify-content: center;
     max-width: 100%;
 
     @media (max-width: 767px) {
-      grid-template-columns: 50% 50%;
+      grid-template-columns: 1fr 1fr;
     }
   }
   &__link {
     position: relative;
+    overflow: hidden;
     aspect-ratio: 379 / 340;
     text-decoration: none;
     text-align: center;
@@ -460,7 +461,23 @@ html {
     justify-content: center;
     align-items: center;
     border: 1px solid #C6CBCD;
+    transition: all .125s linear;
 
+    path {
+      transition: all .125s linear;
+    }
+    &:hover {
+      border: 1px solid rgb(255, 67, 67, .8);  
+    }
+    &:hover path {
+      fill: rgb(255, 67, 67, .8);
+    }
+    &:active {
+      border: 1px solid rgb(185, 12, 12, .8);  
+    }
+    &:active path {
+      fill: rgb(185, 12, 12, .8);
+    }
     @media (max-width: 1024px) {
       width: 33px;
       height: 33px;
@@ -490,6 +507,7 @@ html {
   }
   &__image-wrapper {
     aspect-ratio: 741 / 490;
+    overflow: hidden;
     @media (max-width: 767px) {
       aspect-ratio: 320 / 212;
     }
